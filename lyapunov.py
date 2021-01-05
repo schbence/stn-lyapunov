@@ -43,7 +43,7 @@ def pool_init(P,R,t,psize):
     _var_dict['t'] = t
     _var_dict['psize'] = psize
 
-def lyapunov_parallel_one_path(g, t=1000, ens=100, original=False, attribute="weight"):
+def lyapunov_parallel_one_path(g, t=1000, ens=100, attribute="weight", cores=6):
     """
     Similar to 'lyapunov_parallel' but only works with a single path and it
     measure variance
@@ -57,8 +57,7 @@ def lyapunov_parallel_one_path(g, t=1000, ens=100, original=False, attribute="we
         DESCRIPTION. The default is 1000.
     ens : TYPE, optional
         DESCRIPTION. The default is 100.
-    original : TYPE, optional
-        DESCRIPTION. The default is False.
+
 
     Returns
     -------
@@ -84,7 +83,7 @@ def lyapunov_parallel_one_path(g, t=1000, ens=100, original=False, attribute="we
 
     v0s = np.random.randint(0,g.vcount(),ens)
 
-    pool = mproc.Pool(10, initializer=pool_init, initargs=(P_raw, R_raw, t, psize))
+    pool = mproc.Pool(cores, initializer=pool_init, initargs=(P_raw, R_raw, t, psize))
     dL = np.array(pool.map(_walk_one, v0s))
     pool.close()
     dLm = dL.std(axis=0)

@@ -13,7 +13,6 @@ def lorenz_step(X, t, sigma, beta, rho):
 
 
 
-# Integrate the Lorenz equations
 def lorenz(N=10000, dt=0.01, sigma=10, beta=8./3, rho=28, xyz0=[10,10,40]):
     t = np.arange(0, N*dt, dt) # N number of points, dt timestep
     u0, v0, w0 = xyz0  # intial conditions
