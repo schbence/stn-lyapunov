@@ -4,6 +4,20 @@ from scipy.integrate import odeint
 
 
 
+def henon_map(N, a, b, x0, y0):
+    xs = np.zeros(N)
+    ys = np.zeros(N)
+    xs[0] = x0
+    ys[0] = y0
+
+    for i in range(1,len(xs)):
+        xs[i] = 1 - a * xs[i-1]**2 + ys[i-1]
+        ys[i] = b * xs[i-1]
+
+    return np.array([xs, ys])
+
+
+
 def lorenz_step(X, t, sigma, beta, rho):
     u, v, w = X
     up = sigma*(v - u)

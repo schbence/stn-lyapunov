@@ -7,8 +7,8 @@ _var_dict = {}
 def _randwalk(v0, t):
     p_adj = np.frombuffer(_var_dict['P']).reshape(_var_dict['psize'],-1)
     r_adj = np.frombuffer(_var_dict['R']).reshape(_var_dict['psize'],-1)
-    res = np.zeros(t)   #array for resistivitys
-    vis = np.arange(p_adj.shape[0])     #vertex indices
+    res = np.zeros(t)
+    vis = np.arange(p_adj.shape[0])
     np.random.seed()
     for i in range(1,t):
         v1 = np.random.choice(vis, p=p_adj[v0])
@@ -23,19 +23,13 @@ def _walk_diff(v0, original):
     return abs(l1-l2) if original else (l1-l2)**2
 
 def _walk_one(v0):
-    """
-    Similar to "_walk_diff" but only works with a single path
-    The 'original' has no effect
-    """
     t = _var_dict['t']
     return _randwalk(v0, t)
 
-# original
-def _lslope(l, original):
+def _lslope(l):
     ls = l[-len(l)//2:]
     ts = np.arange(1,len(l))[-len(l)//2:]
-    # return np.mean(ls/np.sqrt(ts)) if original else np.sum(ls*ts)/np.sum(ts*ts)
-    return np.sum(ls*np.sqrt(ts))/np.sum(ts) if original else np.sum(ls*ts)/np.sum(ts*ts)
+    return np.sum(ls*np.sqrt(ts))/np.sum(ts)
 
 def pool_init(P,R,t,psize):
     _var_dict['P'] = P
@@ -88,4 +82,4 @@ def lyapunov_parallel_one_path(g, t=1000, ens=100, attribute="weight", cores=6):
     pool.close()
     dLm = dL.std(axis=0)
 
-    return _lslope(dLm, True)
+    return _lslope(dLm)
