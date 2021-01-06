@@ -15,6 +15,7 @@ if __name__=='__main__':
     plt.plot(rhos, lyaps_avgd)
     plt.xlabel('$\\rho$')
     plt.ylabel('$\Lambda$')
+    plt.grid()
     plt.ion()
     plt.show()
     plt.savefig('plots/ex-3-lorenz-lyap.png')
