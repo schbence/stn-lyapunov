@@ -32,7 +32,21 @@ The parameter ranges are chosen so that the unique peaking behaviour of the Lyap
 
 ### Example 2 - Lyapunov measure of STNs from the Henon Map
 In `example-2-henon.py` the Henon map is iterated with different *a* control parameters to build STNs, then the Lyapunov measure is calculated for every graph object.
- 
+
+```
+    for i, a in enumerate(a_params):
+        dynamics = henon_map(N, a, 0.3, 1.0, 0.5)[:, trans:]
+        g = STN(dynamics, 20)
+        lyaps[i] = lyapunov_parallel(g)
+```
+
+<img src="./plots/ex-2-henon-lyap.png" width="400">
 
 ### Example 3 - Lyapunov measure of STNs from the Lorenz system
+In `example-3-lorenz.py` the Lyapunov measure is calculated and plotted in function of the Lorenz system's control parameter.
+In order to reduce the noise on the final curve ten simulation trials were made for every control parameter value, STNs were constructed from each run and then the Lyapunov measure calculated by averaging the trials that belong to the same control parameter.
+The STN graph objects are saved in the repository.
 
+To reproduce the plot `unzip lorenz_stns.zip` then run `example-3-lorenz.py`.
+
+<img src="./plots/ex-3-lorenz-lyap.png" width="400">
