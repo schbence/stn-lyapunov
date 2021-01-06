@@ -120,7 +120,8 @@ def STN(data, b, vs_coords=True, no_dead_ends=True):
     print(esl)
     g = ig.Graph((es_ws[:,:2]).tolist(),directed=True)
     if vs_coords:
-        g.vs['x'],g.vs['y'] = np.unravel_index(np.arange(len(g.vs)),sh)
+        g.vs['x'], g.vs['y'] = np.unravel_index(np.arange(len(g.vs)),sh)
+        g.vs['y'] = -np.array(g.vs['y'])
     g.es['weight'] = es_ws[:,2]
     zd = g.vs.select(lambda x:x.degree()==0)
     zd.delete()

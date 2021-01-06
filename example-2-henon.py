@@ -4,6 +4,8 @@ from stn import *
 from lyapunov import lyapunov_parallel
 from matplotlib import pyplot as plt
 
+
+
 if __name__=='__main__':
     N   = 100000
     trans = 2000
@@ -22,4 +24,4 @@ if __name__=='__main__':
     plt.xlabel('$a$')
     plt.ylabel('$\Lambda$')
     plt.grid()
-    plt.savefig('example-2.png')
+    plt.savefig('ex-2-henon-lyap.png')
