@@ -14,7 +14,7 @@ if __name__=='__main__':
     lyaps = np.zeros_like(a_params)
 
     for i, a in enumerate(a_params):
-        print(i)
+        print("Param %d; a = %f" %(i,a))
         # Generating the Henon map
         dynamics = henon_map(N, a, 0.3, 1.0, 0.5)[:, trans:]
         # Constructing the STNs

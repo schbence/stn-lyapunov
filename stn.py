@@ -130,7 +130,7 @@ def STN(data, b, vs_coords=True, no_dead_ends=True):
     ts = np.ravel_multi_index(d, sh)
     esl = np.array([ts[:len(ts)-1],ts[1:]]).T
     es_ws = count_links(esl)
-    print(esl)
+    #print(esl)
     g = ig.Graph((es_ws[:,:2]).tolist(),directed=True)
     if vs_coords:
         g.vs['x'], g.vs['y'] = np.unravel_index(np.arange(len(g.vs)),sh)

@@ -11,7 +11,7 @@ if __name__=='__main__':
     xyz0 = [19, 50, 165] # Initial condition of the dynamics
     rho  = 180.5 # Control parameter of the Lorenz system
     section = 15.0 # Point of intersection of the Poincare plane with the x-axis
-    b = 40 # Spatial resolution of the discretization
+    b = 20 # Spatial resolution of the discretization
 
     # Generating the Lorenz dynamics
     dynamics = lorenz(N=N, dt=dt, sigma=10, beta=8./3, rho=rho, xyz0=xyz0)[:, trans:]
