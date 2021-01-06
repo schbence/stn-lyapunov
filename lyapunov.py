@@ -16,12 +16,6 @@ def _randwalk(v0, t):
         v0 = v1
     return np.cumsum(res)
 
-def _walk_diff(v0, original):
-    t = _var_dict['t']
-    l1 = _randwalk(v0, t)
-    l2 = _randwalk(v0, t)
-    return abs(l1-l2) if original else (l1-l2)**2
-
 def _walk_one(v0):
     t = _var_dict['t']
     return _randwalk(v0, t)
