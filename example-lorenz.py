@@ -2,7 +2,7 @@ import numpy as np
 import igraph as ig
 import matplotlib.pyplot as plt
 from stn import *
-from lyapunov import lyapunov_parallel_one_path
+from lyapunov import lyapunov_parallel
 import os
 
 def load_trials(dir, rho):
@@ -40,6 +40,6 @@ def multi_measure(dir, rhos, trials, meas, attrib=None):
 if __name__=='__main__':
     rhos = np.arange(181.620, 181.750, 0.001)
     trials = np.arange(10)
-    lyaps = multi_measure('./lorenz_stns/', rhos, trials, lyapunov_parallel_one_path, attrib='weight')
+    lyaps = multi_measure('./lorenz_stns/', rhos, trials, lyapunov_parallel, attrib='weight')
     lyaps_avgd = lyaps.mean(axis=1)
     plt.plot(rhos, lyaps_avgd)

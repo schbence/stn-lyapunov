@@ -37,11 +37,8 @@ def pool_init(P,R,t,psize):
     _var_dict['t'] = t
     _var_dict['psize'] = psize
 
-def lyapunov_parallel_one_path(g, t=1000, ens=100, attribute="weight", cores=6):
+def lyapunov_parallel(g, t=1000, ens=100, attribute="weight", cores=6):
     """
-    Similar to 'lyapunov_parallel' but only works with a single path and it
-    measure variance
-
 
     Parameters
     ----------
@@ -52,14 +49,13 @@ def lyapunov_parallel_one_path(g, t=1000, ens=100, attribute="weight", cores=6):
     ens : TYPE, optional
         DESCRIPTION. The default is 100.
 
-
     Returns
     -------
     TYPE
         DESCRIPTION.
 
     """
-    #global pool_init
+
     dL = np.zeros([ens,t])
 
     Wadj = np.array(g.get_adjacency(attribute=attribute).data)
