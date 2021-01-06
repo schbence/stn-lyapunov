@@ -9,7 +9,7 @@ if __name__=='__main__':
     trans = 2000 # Number of transient samples to neglect
     dt   = 0.002 # Simulation timestep
     xyz0 = [19, 50, 165] # Initial condition of the dynamics
-    rho  = 180.5 # Control parameter of the Lorenz system
+    rho  = 180.7 # Control parameter of the Lorenz system
     section = 15.0 # Point of intersection of the Poincare plane with the x-axis
     b = 20 # Spatial resolution of the discretization
 
