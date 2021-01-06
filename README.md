@@ -56,7 +56,7 @@ In `example-2-henon.py` the Henon map is iterated with different *a* control par
 ### Example 3 - Lyapunov measure of STNs from the Lorenz system
 In `example-3-lorenz.py` the Lyapunov measure is calculated and plotted in function of the Lorenz system's control parameter.
 In order to reduce the noise on the final curve ten simulation trials were made for every control parameter value, STNs were constructed from each run and then the Lyapunov measure calculated by averaging the trials that belong to the same control parameter.
-The STN graph objects are saved in the repository.
+The STN graph objects are saved in the repository. The non-zero baseline in the periodic regime can be eliminated by using a smaller timestep during the integration of the Lorenz system.
 
 To reproduce the plot `unzip lorenz_stns.zip` then run `example-3-lorenz.py`.
 
