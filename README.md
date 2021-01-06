@@ -14,9 +14,15 @@ By solving the Lorenz system numerically we obtain a quasi-continuous three-vari
 Code excerpt from `example-1-lorenz.py`:
 
 ```
+    # Generating the Lorenz dynamics
     dynamics = lorenz(N=N, dt=dt, sigma=10, beta=8./3, rho=rho, xyz0=xyz0)[:, trans:]
+    
+    # Taking the Poincare section
     poin = poincare(dynamics, axis=0, value=section)
-    g = STN(poin, 40)
+    
+    # Constructing an STN
+    g = STN(poin, b)
+
 ```
 
 Running the example should result in plotting the dynamics and the corresponding STN:
@@ -35,8 +41,13 @@ In `example-2-henon.py` the Henon map is iterated with different *a* control par
 
 ```
     for i, a in enumerate(a_params):
+        # Generating the Henon map
         dynamics = henon_map(N, a, 0.3, 1.0, 0.5)[:, trans:]
+        
+        # Constructing the STNs
         g = STN(dynamics, 20)
+        
+        # Calculating the Lyapunov measure
         lyaps[i] = lyapunov_parallel(g)
 ```
 
