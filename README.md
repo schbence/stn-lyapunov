@@ -19,7 +19,7 @@ Code excerpt from `example-1-lorenz.py`:
     g = STN(poin, 40)
 ```
 
-
+Running the example should result in plotting the dynamics and the corresponding STN.
 <img src="./plots/ex-1-lorenz.png" width="300">
 
 <img src="./plots/ex-1-stn.png" width="250">
