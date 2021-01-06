@@ -14,7 +14,7 @@ if __name__=='__main__':
 
     dynamics = lorenz(N=N, dt=dt, sigma=10, beta=8./3, rho=rho, xyz0=xyz0)[:, trans:]
     poin = poincare(dynamics, axis=0, value=section)
-    g = STN(poin, 40, 1)
+    g = STN(poin, 40)
 
     fig = plt.figure(figsize=(4,6))
 
