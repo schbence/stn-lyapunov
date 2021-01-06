@@ -33,21 +33,24 @@ def pool_init(P,R,t,psize):
 
 def lyapunov_parallel(g, t=1000, ens=100, attribute="weight", cores=6):
     """
+    Calculates the Lyapunov network measure of an STN on multiple threads.
 
     Parameters
     ----------
-    g : TYPE
-        DESCRIPTION.
-    t : TYPE, optional
-        DESCRIPTION. The default is 1000.
-    ens : TYPE, optional
-        DESCRIPTION. The default is 100.
-
+    g : igraph.Graph
+        graph object of a State Transition Network
+    t : int, optional
+        Number of steps the random walks make. The default is 1000.
+    ens : int, optional
+        Ensemble size over which the path lengths are averaged. The default is 100.
+    attribute : String, optional
+        edge attribute of g from which the probabilities and edge lengths are calculated
+    cores : int, optional
+        Number of parallel processes
     Returns
     -------
-    TYPE
-        DESCRIPTION.
-
+    lyap : float
+        Lyapunov netwok measure.
     """
 
     dL = np.zeros([ens,t])
@@ -71,5 +74,5 @@ def lyapunov_parallel(g, t=1000, ens=100, attribute="weight", cores=6):
     dL = np.array(pool.map(_walk_one, v0s))
     pool.close()
     dLm = dL.std(axis=0)
-
-    return _lslope(dLm)
+    lyap = _lslope(dLm)
+    return lyap

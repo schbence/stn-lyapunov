@@ -105,12 +105,25 @@ def count_links(edges, directed=True):
 
 #-----------------------------------------------------------------------
 def STN(data, b, vs_coords=True, no_dead_ends=True):
-    #         data: 2D array with shape ChannelNr,data_len
-    #            b: spatial resolution
-    #    vs_coords: if true, sets the vs['x'] and ['y'] coordinates of the vertices
-    #               use when plotting the graph
-    # no_dead_ends: removes vertices that have no outgoing edges
+    """
+    Constructs the State-Transition Network from time series data
 
+    Parameters
+    ----------
+    data : numpy.ndarray
+        Array with dynamics data of shape (vars, time)
+    b : int
+        Resolution of the spatial discretization.
+        b number of bins will be constructed between the extrema of the data.
+    vs_coords : bool, optional
+        Whether to keep the spatial layout of the vertices.
+    no_dead_ends : bool, optional
+        If True then vertices with zero out-degree are removed.
+    Returns
+    -------
+    g : igraph.Graph
+        State-Transition Network.
+    """
     d = __discr__(data, b)
     d = np.array(d, dtype=int)
     sh = d.max(axis=1)+1
