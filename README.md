@@ -9,7 +9,8 @@ Given the time series data and the discretization resolution *b* the function re
 Consider the following example to see the usage in practice.
 
 ### Example 1 - STN from Lorenz dynamics
-By solving the Lorenz system numerically we obtain a quasi-continuous three-variable time series, which is then reduced to a two-dimensional discrete-time map by taking a Poincare section. This two-dimensional data is then used to construct the STN. 
+By solving the Lorenz system numerically we obtain a quasi-continuous three-variable time series, which is then reduced to a two-dimensional discrete-time map by taking a Poincare section. This two-dimensional data is then used to construct the STN.
+
 Code excerpt from `example-1-lorenz.py`:
 
 ```
