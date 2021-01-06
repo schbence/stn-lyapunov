@@ -1,9 +1,9 @@
-# Lyapunov measure for State Transition Networks
+# Lyapunov measure for State-Transition Networks
 
-The repository provides a method to construct State Transition Networks from discrete-time or quasi-continuous multivariate time-series.
+The repository provides a method to construct State-Transition Networks (STN) from discrete-time or quasi-continuous multivariate time-series.
 Furthermore it contains an implementation of the Lyapunov measure defined for STNs (as introduced in [article link?]). 
 
-## Constructing State Transition Networks
+## Constructing State-Transition Networks
 
 
 ### Example 1 - STN from Lorenz dynamics
