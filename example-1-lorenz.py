@@ -33,8 +33,8 @@ if __name__=='__main__':
     plt.subplots_adjust(left=0.18, bottom=0.08, top=0.94, hspace=0.3)
     plt.ion()
     plt.show()
-    plt.savefig('ex-1-lorenz.png')
+    plt.savefig('plots/ex-1-lorenz.png')
 
     p = ig.plot(g)
-    p.save('ex-1-stn.png')
+    p.save('plots/ex-1-stn.png')
     p.show()
