@@ -17,7 +17,7 @@ if __name__=='__main__':
     for i, a in enumerate(a_params):
         print(i)
         dynamics = henon_map(N, a, 0.3, 1.0, 0.5)[:, trans:]
-        g = STN(dynamics, 20, 1)
+        g = STN(dynamics, 20)
         lyaps[i] = lyapunov_parallel(g)
 
     plt.plot(a_params, lyaps)
