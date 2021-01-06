@@ -4,9 +4,14 @@ The repository provides a method to construct State-Transition Networks (STN) fr
 Furthermore it contains an implementation of the Lyapunov measure defined for STNs (as introduced in [article link?]). 
 
 ## Constructing State-Transition Networks
-
+State-transition networks can be constructed using the function `STN` from `stn.py`.
+Given the time-series data `data` and the discretization resolution `b` one obatins a weighted and directed `igraph.Graph` object.
 
 ### Example 1 - STN from Lorenz dynamics
+
+<img src="./plots/ex-1-lorenz.png" width="300">
+
+<img src="./plots/ex-1-stn.png" width="250">
 
 ## Calculating the Lyapunov network measure
 
