@@ -11,4 +11,10 @@ if __name__=='__main__':
     trials = np.arange(10)
     lyaps = multi_measure('./lorenz_stns/', rhos, trials, lyapunov_parallel, attrib='weight')
     lyaps_avgd = lyaps.mean(axis=1)
+
     plt.plot(rhos, lyaps_avgd)
+    plt.xlabel('$\\rho$')
+    plt.ylabel('$\Lambda$')
+    plt.ion()
+    plt.show()
+    plt.savefig('plots/ex-3-lorenz-lyap.png')

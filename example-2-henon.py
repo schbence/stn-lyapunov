@@ -24,4 +24,4 @@ if __name__=='__main__':
     plt.xlabel('$a$')
     plt.ylabel('$\Lambda$')
     plt.grid()
-    plt.savefig('ex-2-henon-lyap.png')
+    plt.savefig('plots/ex-2-henon-lyap.png')
