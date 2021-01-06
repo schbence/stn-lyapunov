@@ -19,15 +19,20 @@ Code excerpt from `example-1-lorenz.py`:
     g = STN(poin, 40)
 ```
 
-Running the example should result in plotting the dynamics and the corresponding STN.
+Running the example should result in plotting the dynamics and the corresponding STN:
 
 <img src="./plots/ex-1-lorenz.png" width="300">
 
 <img src="./plots/ex-1-stn.png" width="250">
 
 ## Calculating the Lyapunov network measure
+Having an STN the Lyapunov network measure can be calculated by calling `lyapunov_parallel` implemented in module `lyapunov.py`.
+In the next two exmaples the Lyapunov measure is computed for STNs constructed from multiple runs of the dynamics with varying control parameters.
+The parameter ranges are chosen so that the unique peaking behaviour of the Lyapunov measure can be observed near the transition of the chaotic and periodic regime.
 
 ### Example 2 - Lyapunov measure of STNs from the Henon Map
+In `example-2-henon.py` the Henon map is iterated with different *a* control parameters to build STNs, then the Lyapunov measure is calculated for every graph object.
+ 
 
 ### Example 3 - Lyapunov measure of STNs from the Lorenz system
 
