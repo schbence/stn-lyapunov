@@ -42,6 +42,9 @@ if __name__=='__main__':
     plt.savefig('plots/ex-1-lorenz.png')
 
     # Plotting the STN
-    p = ig.plot(g)
+    vs = {}
+    ws = np.array(g.es['weight'])
+    vs['edge_width'] = np.interp(ws, [ws.min(), ws.max()], [0.25,8])
+    p = ig.plot(g, **vs)
     p.save('plots/ex-1-stn.png')
     p.show()
